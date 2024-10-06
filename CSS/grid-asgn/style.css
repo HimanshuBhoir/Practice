@@ -1,0 +1,21 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+  }
+  
+  .one{
+  grid-column: 1/4;
+  }
+  
+  .two{
+  grid-column: 1/2;
+  }
+  
+  .three{
+  grid-column: 2/4;
+  }
+  
+  .four{
+  grid-column: 2/4;
+  }
