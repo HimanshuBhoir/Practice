@@ -1,0 +1,65 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 10px;
+  }
+
+@media screen and (min-width: 35rem) {
+
+    header ul {
+      display: flex;
+    }
+  
+    header li {
+      flex: 1;
+    }
+  
+    header a {
+      border-left: 1px solid #999;
+    }
+  
+    header li:first-child a {
+      border-left: none;
+    }
+  
+  }
+
+@media screen and (min-width: 58rem) {
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+    }
+  
+    header div {
+      grid-column: 1;
+    }
+  
+    nav {
+      grid-column: 3;
+    }
+  
+    nav ul {
+      justify-content: flex-end;
+    }
+  
+    nav li {
+      flex: initial;
+    } 
+  
+    header a {
+      border: none;
+    }   
+  
+    main {
+      display: flex;
+      gap: 20px;
+      padding-right: 1rem;
+    }
+  
+    .sidebar {
+      margin-top: 20px;
+    }
+  
+  }
