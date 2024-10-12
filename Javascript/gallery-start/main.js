@@ -56,4 +56,4 @@ btn.addEventListener('click', () => {
 /* Initial call to populate thumbnails */
 window.addEventListener('load', (event) => {
   loopImage();
-});
+});``
