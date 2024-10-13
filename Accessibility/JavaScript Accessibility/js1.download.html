@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8"/>
+    <title>JavaScript accessibility: Task 1</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      li {
+        cursor: pointer;
+        padding: 0.5em;
+        border: 1px solid lightgray;
+        margin-bottom: 0.2em;
+      }
+
+      li:focus {
+        outline: 2px solid blue;
+        background-color: lightyellow;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <section class="preview">
+      <div class="animal-list">
+        <h1>Animal summaries</h1>
+        <p>The following list of animals can be clicked or navigated via keyboard to display a description of that animal.</p>
+        <ul>
+        <!-- tabindex="0": This makes each <li> element focusable, allowing keyboard users to navigate between them using the Tab key. -->
+          <li tabindex="0" data-description="A type of wild mountain goat, with large recurved horns, found in Eurasia, North Africa, and East Africa.">Ibex</li>
+          <li tabindex="0" data-description="A medium-sized marine mammal, similar to a manatee, but with a Dolphin-like tail.">Dugong</li>
+          <li tabindex="0" data-description="A rare marsupial, which looks rather like a tiny kangaroo, measuring around 50 to 75 centimeters.">Quokka</li>
+        </ul>
+      </div>
+
+      <div class="animal-description">
+        <h2></h2>
+        <p></p>
+      </div>
+    </section>
+
+    <script>
+      const listItems = document.querySelectorAll('li');
+      const descHeading = document.querySelector('.animal-description h2');
+      const descPara = document.querySelector('.animal-description p');
+
+      listItems.forEach(function(item) {
+        item.addEventListener('mouseup', handleSelection);
+        item.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault(); // Prevent page scrolling when pressing space
+            handleSelection(e);
+          }
+        });
+      });
+
+      function handleSelection(e) {
+        const heading = e.target.textContent;
+        const description = e.target.getAttribute('data-description');
+        descHeading.textContent = heading;
+        descPara.textContent = description;
+      }
+    </script>
+
+  </body>
+</html>
